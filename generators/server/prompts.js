@@ -90,7 +90,7 @@ function prompting() {
         {
             type: 'list',
             name: 'buildTool',
-            message: 'Which build tool do you want to use?',
+            message: 'Which build tool do you want to use.?',
             choices: [
                 {
                     value: 'maven',
@@ -102,7 +102,12 @@ function prompting() {
                 }
             ],
             default: 'maven'
-        }
+        },{
+            name: "appBanner",
+            type: "string",
+            message: "What would be in the application banner?",
+            default: "sample banner"
+          }
     ];
 
     this.prompt(prompts).then(answers => {

@@ -3,6 +3,8 @@ const BaseGenerator = require('../base-generator');
 const constants = require('../constants');
 const prompts = require('./prompts');
 const path = require('path');
+var figlet = require('figlet');
+//const yosay = require("yosay");
 
 module.exports = class extends BaseGenerator {
 
@@ -12,6 +14,11 @@ module.exports = class extends BaseGenerator {
     }
 
     initializing() {
+        /*this.log(
+            yosay(
+              `Welcome to the ${chalk.bold.magenta("TEST")} microservice generator!`
+            )
+          );*/
         this.logSuccess('Generating SpringBoot Application')
     }
 
@@ -24,9 +31,11 @@ module.exports = class extends BaseGenerator {
         this.config.set(this.configOptions);
         Object.assign(this.configOptions, constants);
         this.configOptions.formatCode = this.options.formatCode !== false
+        this.configOptions.javaCodeResourcesFolder = this.configOptions.srcFolder + '/main/resources';
     }
 
     writing() {
+        this._generateBanner(this.configOptions);
         this._generateBuildToolConfig(this.configOptions);
         this._generateDockerConfig(this.configOptions);
         this._generateJenkinsFile(this.configOptions);
@@ -45,6 +54,21 @@ module.exports = class extends BaseGenerator {
         this._printGenerationSummary(this.configOptions);
     }
 
+    _generateBanner() {
+        let banner = figlet.textSync(this.configOptions.appBanner, {
+          horizontalLayout: 'default',
+          verticalLayout: 'default',
+          width: 80,
+          whitespaceBreak: true
+        });
+        console.log(banner)
+    
+        this.fs.write(
+          this.destinationPath(this.configOptions.javaCodeResourcesFolder + "/banner.txt"),
+          banner
+        )
+      }
+    
     _printGenerationSummary(configOptions) {
         this.logError("==========================================");
         this.logSuccess("Your application is generated successfully");
