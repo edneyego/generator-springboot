@@ -31,7 +31,11 @@ module.exports = class extends BaseGenerator {
         this.config.set(this.configOptions);
         Object.assign(this.configOptions, constants);
         this.configOptions.formatCode = this.options.formatCode !== false
+
+        this.configOptions.srcFolder = 'src';
+        this.configOptions.javaCodeFolder = this.configOptions.srcFolder + '/main/java';
         this.configOptions.javaCodeResourcesFolder = this.configOptions.srcFolder + '/main/resources';
+        this.configOptions.testCodeFolder = this.configOptions.srcFolder + '/test';
     }
 
     writing() {
