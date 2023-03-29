@@ -9,6 +9,24 @@ A Yeoman generator for generating Microservices with SpringBoot
 > yo springboot
 ```
 
+## Maintanance
+```
+> npm uninstall -g generator-springboot
+> npm list -g --depth=0 | grep 'generator'
+> yo --generators
+> np
+```
+
+## How to use localy?
+
+```
+> npm install -g yo
+> npm install 
+> npm link
+> yo springboot
+```
+
+
 ## Features
 
 * SpringBoot REST API with jar type packaging
