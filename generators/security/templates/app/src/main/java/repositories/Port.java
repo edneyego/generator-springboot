@@ -1,4 +1,4 @@
-package <%= packageName %>.ports.out;
+package <%= packageName %>.repositories;
 
 import <%= packageName %>.mapper.<%= entityName %>Mapper;
 import <%= packageName %>.entities.<%= entityName %>;

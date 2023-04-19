@@ -1,4 +1,4 @@
-package <%= packageName %>.outbound.repositories;
+package <%= packageName %>.repositories;
 
 import java.util.Optional;
 

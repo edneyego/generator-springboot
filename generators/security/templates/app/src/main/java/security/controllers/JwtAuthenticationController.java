@@ -1,4 +1,4 @@
-package <%= packageName %>.inbound.controllers;
+package <%= packageName %>.security.controllers;
 
 import java.util.Objects;
 

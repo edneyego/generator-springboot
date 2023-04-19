@@ -60,13 +60,13 @@ module.exports = class extends BaseGenerator {
             {src: 'security/jwt/JwtTokenUtil.java', dest: 'security/jwt/JwtTokenUtil.java'},
             {src: 'security/jwt/JwtUtils.java', dest: 'security/jwt/JwtUtils.java'},
 
-            {src: 'inbound/controllers/JwtAuthenticationController.java', dest: 'inbound/controllers/JwtAuthenticationController.java'},
-            {src: 'inbound/controllers/RegistrationController.java', dest: 'inbound/controllers/RegistrationController.java'},
+            {src: 'security/controllers/JwtAuthenticationController.java', dest: 'security/controllers/JwtAuthenticationController.java'},
+            {src: 'security/controllers/RegistrationController.java', dest: 'security/controllers/RegistrationController.java'},
 
             {src: 'entities/Entity.java', dest: 'entities/'+configOptions.entityName+'.java'},//ok
 
-            {src: 'outbound/repositories/UserRepository.java', dest: 'outbound/repositories/'+configOptions.entityName+'Repository.java'},
-            {src: 'outbound/RepositoryAdapter.java', dest: 'outbound/'+configOptions.entityName+'RepositoryAdapter.java'},
+            {src: 'repositories/UserRepository.java', dest: 'repositories/'+configOptions.entityName+'Repository.java'},
+            {src: 'adapter/RepositoryAdapter.java', dest: 'adapter/'+configOptions.entityName+'RepositoryAdapter.java'},
 
             {src: 'dto/Entity.java', dest: 'dto/'+configOptions.entityName+'DTO.java'},
             {src: 'dto/JwtRequest.java', dest: 'dto/JwtRequest.java'},
@@ -74,7 +74,7 @@ module.exports = class extends BaseGenerator {
             {src: 'mapper/Entity.java', dest: 'mapper/'+configOptions.entityName+'Mapper.java'},
             {src: 'mapper/Converter.java', dest: 'mapper/Converter.java'},
 
-            {src: 'ports/out/Port.java', dest: 'ports/out/'+configOptions.entityName+'RepositoryPort.java'},
+            {src: 'repositories/Port.java', dest: 'repositories/'+configOptions.entityName+'RepositoryPort.java'},
         ];
         this.generateMainJavaCode(configOptions, mainJavaTemplates);
 

@@ -1,8 +1,8 @@
-package <%= packageName %>.outbound;
+package <%= packageName %>.adapter;
 
 import java.util.Optional;
-import <%= packageName %>.outbound.repositories.<%= entityName %>Repository;
-import <%= packageName %>.ports.out.<%= entityName %>RepositoryPort;
+import <%= packageName %>.repositories.<%= entityName %>Repository;
+import <%= packageName %>.repositories.<%= entityName %>RepositoryPort;
 import <%= packageName %>.entities.<%= entityName %>;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;

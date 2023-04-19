@@ -1,4 +1,4 @@
-package <%= packageName %>.inbound.controllers;
+package <%= packageName %>.security.controllers;
 
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import <%= packageName %>.mapper.Converter;
 import <%= packageName %>.mapper.<%= entityName %>Mapper;
 import <%= packageName %>.entities.Auth;
-import <%= packageName %>.ports.out.AuthRepositoryPort;
+import <%= packageName %>.repositories.AuthRepositoryPort;
 
 import lombok.extern.slf4j.Slf4j;
 
