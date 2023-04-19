@@ -39,12 +39,24 @@ public class WebSecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.cors().and().csrf().disable()
-            .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
-            .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-            .authorizeRequests().requestMatchers("/api/auth/**", "/registration/register").permitAll()
-            .requestMatchers("/api/test/**").permitAll()
-            .anyRequest().authenticated();
+      http.cors()
+          .and()
+          .csrf().disable()
+          .exceptionHandling()
+          .authenticationEntryPoint(unauthorizedHandler)
+          .and()
+          .sessionManagement()
+          .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+          .and()
+          .authorizeHttpRequests()
+          .requestMatchers(
+                  "/api/auth","/api/auth/**",
+                  "/registration/register",
+                  "/swagger-ui/**",
+                  "/v3/api-docs/**","/api/test/**")
+          .permitAll()
+          .anyRequest()
+          .authenticated();
         return http.build();
     }
 
