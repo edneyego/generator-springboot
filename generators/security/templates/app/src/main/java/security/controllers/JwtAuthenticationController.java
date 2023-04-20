@@ -19,6 +19,7 @@ import <%= packageName %>.security.jwt.JwtUtils;
 import <%= packageName %>.dto.JwtRequest;
 import <%= packageName %>.dto.JwtResponse;
 import <%= packageName %>.security.services.UserDetailsImpl;
+import <%= packageName %>.security.services.UserDetailsServiceImpl;
 
 import java.util.Objects;
 
