@@ -11,8 +11,6 @@ public class <%= entityName %>Mapper {
 
     private Long id;
 
-    private String text;
-
     private String username;
 
     private String email;

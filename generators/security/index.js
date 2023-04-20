@@ -57,7 +57,6 @@ module.exports = class extends BaseGenerator {
             {src: 'security/services/UserDetailsServiceImpl.java', dest: 'security/services/UserDetailsServiceImpl.java'},
             {src: 'security/jwt/AuthEntryPointJwt.java', dest: 'security/jwt/AuthEntryPointJwt.java'},
             {src: 'security/jwt/AuthTokenFilter.java', dest: 'security/jwt/AuthTokenFilter.java'},
-            {src: 'security/jwt/JwtTokenUtil.java', dest: 'security/jwt/JwtTokenUtil.java'},
             {src: 'security/jwt/JwtUtils.java', dest: 'security/jwt/JwtUtils.java'},
 
             {src: 'security/controllers/JwtAuthenticationController.java', dest: 'security/controllers/JwtAuthenticationController.java'},

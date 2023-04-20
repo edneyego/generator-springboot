@@ -6,23 +6,22 @@
 
 ### Run locally
 ```shell
-$ docker-compose -f docker/docker-compose.yml up -d
-$ ./mvn spring-boot:run -Dspring-boot.run.profiles=local
-
+docker-compose -f docker/docker-compose.yml up -d
 mvn spotless:apply
 
+mvn spring-boot:run -Dspring-boot.run.profiles=local
 
 ```
 <%_ } _%>
 
 <%_ if (buildTool === 'gradle') { _%>
 ### Run tests
-`$ ./gradlew clean build`
+`./gradlew clean build`
 
 ### Run locally
 ```shell
-$ docker-compose -f docker/docker-compose.yml up -d
-$ ./gradlew bootRun -Plocal
+docker-compose -f docker/docker-compose.yml up -d
+./gradlew bootRun -Plocal
 ```
 <%_ } _%>
 
