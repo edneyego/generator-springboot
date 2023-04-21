@@ -1,4 +1,4 @@
-package <%= packageName %>.web.controllers;
+package <%= packageName %>.controllers;
 
 import static <%= packageName %>.utils.AppConstants.PROFILE_TEST;
 import static org.hamcrest.CoreMatchers.is;

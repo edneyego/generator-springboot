@@ -2,7 +2,6 @@ package <%= packageName %>.adapter;
 
 import java.util.Optional;
 import <%= packageName %>.repositories.<%= entityName %>Repository;
-import <%= packageName %>.repositories.<%= entityName %>RepositoryPort;
 import <%= packageName %>.entities.<%= entityName %>;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -11,7 +10,7 @@ import <%= packageName %>.mapper.Converter;
 import org.springframework.stereotype.Component;
 
 @Component
-public class <%= entityName %>RepositoryAdapter implements <%= entityName %>RepositoryPort {
+public class <%= entityName %>RepositoryAdapter implements I<%= entityName %>RepositoryAdapter {
 
   @Autowired
   private PasswordEncoder passwordEncoder;

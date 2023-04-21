@@ -21,6 +21,18 @@ module.exports = class extends BaseGenerator {
         })
     }
 
+    async prompting() {
+        this.answers = await this.prompt([
+          {
+            type: "confirm",
+            name: "hasSecurity",
+            message: "The project has security feature?"
+          }
+        ]);
+
+        Object.assign(this.configOptions, this.answers);
+    }
+
     get initializing() {
         this.logSuccess('Generating JPA entity, repository, service and controller');
         return {
@@ -40,6 +52,7 @@ module.exports = class extends BaseGenerator {
         this.configOptions = Object.assign({}, this.configOptions, this.config.getAll());
         this.configOptions.basePath = this.options['base-path'];
         this.configOptions.entityName = this.options.entityName;
+        //this.configOptions.hasSecurity = '';
         this.configOptions.entityVarName = _.camelCase(this.options.entityName);
         this.configOptions.tableName = _.snakeCase(this.options.entityName)+'s';
         this.configOptions.supportDatabaseSequences =
@@ -51,6 +64,7 @@ module.exports = class extends BaseGenerator {
     writing() {
         this._generateAppCode(this.configOptions);
         this._generateDbMigrationConfig(this.configOptions)
+        this.log("Security answer", this.answers.hasSecurity);
     }
 
     end() {
@@ -65,13 +79,13 @@ module.exports = class extends BaseGenerator {
             {src: 'model/response/PagedResult.java', dest: 'model/response/PagedResult.java'},
             {src: 'repositories/Repository.java', dest: 'repositories/'+configOptions.entityName+'Repository.java'},
             {src: 'services/Service.java', dest: 'services/'+configOptions.entityName+'Service.java'},
-            {src: 'web/controllers/Controller.java', dest: 'web/controllers/'+configOptions.entityName+'Controller.java'},
+            {src: 'controllers/Controller.java', dest: 'controllers/'+configOptions.entityName+'Controller.java'},
         ];
         this.generateMainJavaCode(configOptions, mainJavaTemplates);
 
         const testJavaTemplates = [
-            {src: 'web/controllers/ControllerTest.java', dest: 'web/controllers/'+configOptions.entityName+'ControllerTest.java'},
-            {src: 'web/controllers/ControllerIT.java', dest: 'web/controllers/'+configOptions.entityName+'ControllerIT.java'},
+            {src: 'controllers/ControllerTest.java', dest: 'controllers/'+configOptions.entityName+'ControllerTest.java'},
+            {src: 'controllers/ControllerIT.java', dest: 'controllers/'+configOptions.entityName+'ControllerIT.java'},
             {src: 'services/ServiceTest.java', dest: 'services/'+configOptions.entityName+'ServiceTest.java'},
         ];
         this.generateTestJavaCode(configOptions, testJavaTemplates);

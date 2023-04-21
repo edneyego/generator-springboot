@@ -1,11 +1,11 @@
-package <%= packageName %>.repositories;
+package <%= packageName %>.adapter;
 
 import <%= packageName %>.mapper.<%= entityName %>Mapper;
 import <%= packageName %>.entities.<%= entityName %>;
 
 import java.util.Optional;
 
-public interface <%= entityName %>RepositoryPort {
+public interface I<%= entityName %>RepositoryAdapter {
 
     public Optional<<%= entityName %>> findByUsername(String username);
 

@@ -1,4 +1,4 @@
-package <%= packageName %>.web.controllers;
+package <%= packageName %>.controllers;
 
 import <%= packageName %>.entities.<%= entityName %>;
 import <%= packageName %>.model.response.PagedResult;
@@ -20,10 +20,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+<% if (hasSecurity) { %>
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+<% } %>
+
 
 @RestController
 @RequestMapping("<%= basePath %>")
 @Slf4j
+
+<% if (hasSecurity) { %>
+@SecurityRequirement(name = "javainuseapi")
+<% } %>
 public class <%= entityName %>Controller {
 
     private final <%= entityName %>Service <%= entityVarName %>Service;

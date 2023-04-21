@@ -1,4 +1,4 @@
-package <%= packageName %>.web.controllers;
+package <%= packageName %>.controllers;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;

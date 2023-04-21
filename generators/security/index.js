@@ -66,14 +66,15 @@ module.exports = class extends BaseGenerator {
 
             {src: 'repositories/UserRepository.java', dest: 'repositories/'+configOptions.entityName+'Repository.java'},
             {src: 'adapter/RepositoryAdapter.java', dest: 'adapter/'+configOptions.entityName+'RepositoryAdapter.java'},
+            {src: 'adapter/IRepositoryAdapter.java', dest: 'adapter/I'+configOptions.entityName+'RepositoryAdapter.java'},
 
             {src: 'dto/Entity.java', dest: 'dto/'+configOptions.entityName+'DTO.java'},
             {src: 'dto/JwtRequest.java', dest: 'dto/JwtRequest.java'},
             {src: 'dto/JwtResponse.java', dest: 'dto/JwtResponse.java'},
             {src: 'mapper/Entity.java', dest: 'mapper/'+configOptions.entityName+'Mapper.java'},
             {src: 'mapper/Converter.java', dest: 'mapper/Converter.java'},
-
-            {src: 'repositories/Port.java', dest: 'repositories/'+configOptions.entityName+'RepositoryPort.java'},
+            {src: 'config/SwaggerConfig.java', dest: 'config/SwaggerConfig.java'},
+            
         ];
         this.generateMainJavaCode(configOptions, mainJavaTemplates);
 
