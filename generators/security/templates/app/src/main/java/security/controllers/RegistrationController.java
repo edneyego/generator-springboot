@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import <%= packageName %>.mapper.Converter;
 import <%= packageName %>.mapper.<%= entityName %>Mapper;
-import <%= packageName %>.entities.Auth;
-import <%= packageName %>.repositories.AuthRepositoryPort;
+import <%= packageName %>.entities.<%= entityName %>;
+import <%= packageName %>.adapter.I<%= entityName %>RepositoryAdapter;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -23,7 +23,7 @@ import lombok.extern.slf4j.Slf4j;
 public class RegistrationController {
 
     @Autowired
-    private <%= entityName %>RepositoryPort userService;
+    private I<%= entityName %>RepositoryAdapter userService;
 
     @Autowired
     private ApplicationEventPublisher publisher;
