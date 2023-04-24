@@ -42,6 +42,7 @@ A Yeoman generator for generating Microservices with SpringBoot
 * Jenkinsfile
 * GitHub Actions Configuration
 * SonarQube, Google-java-format static analysis tools configuration
+* Springboot security added
 
 
 ### Generate SpringBoot Microservice
@@ -66,6 +67,11 @@ This will generate:
 
 ![CRUD Generation](docs/crud-generation.png)
 
+### Generate Spring Security configuration
+You can add a Spring Security configuration, which will be used in your application
+You should run the following command from within the generated project folder. 
+
+`myservice> yo springboot:security`
 
 ## Why another generator when you have JHipster?
 JHipster is an amazing SpringBoot application generator with lots and lots of cool features.
@@ -90,6 +96,10 @@ However, there are certain JHipster features that does not fit for my preference
 ```
 
 ## Changelog
+
+### Version 1.0.0
+* Added security features, with support springboot security, and add controller with security classes.
+
 
 ### Version 0.0.5
 * Added support for generating docker-compose yml files for application, ELK, Prometheus, Grafana
