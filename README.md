@@ -50,6 +50,17 @@ A Yeoman generator for generating Microservices with SpringBoot
 ![Microservice Generation](docs/server-generation-1.png)
 ![Microservice Generation](docs/server-generation-2.png)
 
+
+### Generate Spring Security configuration
+You can add a Spring Security configuration, which will be used in your application
+You should run the following command from within the generated project folder. 
+
+`myservice> yo springboot:security`
+
+![Security Generation](docs/server-generation-4.png)
+
+
+
 ### Generate REST API with CRUD operations
 You can generate REST API with CRUD operation using the following command:
 
@@ -65,13 +76,8 @@ This will generate:
 * Unit and Integration Tests for REST Controller
 * Flyway or Liquibase migration to create table
 
-![CRUD Generation](docs/crud-generation.png)
+![CRUD Generation](docs/server-generation-3.png)
 
-### Generate Spring Security configuration
-You can add a Spring Security configuration, which will be used in your application
-You should run the following command from within the generated project folder. 
-
-`myservice> yo springboot:security`
 
 ## Why another generator when you have JHipster?
 JHipster is an amazing SpringBoot application generator with lots and lots of cool features.
