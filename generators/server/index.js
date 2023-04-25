@@ -312,7 +312,9 @@ module.exports = class extends BaseGenerator {
     _generateELKConfig(configOptions) {
         const resTemplates = [
             'docker/docker-compose-elk.yml',
-            'config/elk/logstash.conf',
+            'config/elk/config/logstash.yml',
+            'config/elk/pipeline/logstash.conf',
+            'logs/sample.log',
         ];
         this.generateFiles(configOptions, resTemplates, 'app/','./');
     }

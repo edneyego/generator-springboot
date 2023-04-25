@@ -1,5 +1,8 @@
 # <%= appName %>
 
+### Features
+Java JDK Version: <%= JAVA_VERSION %>
+
 <%_ if (buildTool === 'maven') { _%>
 ### Run tests
 `$ ./mvnw clean verify`
@@ -23,6 +26,13 @@ mvn spring-boot:run -Dspring-boot.run.profiles=local
 ```shell
 docker-compose -f docker/docker-compose.yml up -d
 ./gradlew bootRun -Plocal
+```
+<%_ } _%>
+
+<%_ if (features.includes('elk')) { _%>
+### Run ELK
+```shell
+docker-compose -f docker/docker-compose-elk.yml up -d
 ```
 <%_ } _%>
 

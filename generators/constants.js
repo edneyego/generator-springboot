@@ -1,5 +1,5 @@
 module.exports = {
-    JAVA_VERSION : '17',
+    JAVA_VERSION : '19',
     SPRING_BOOT_VERSION : '3.0.0',
     SPRING_CLOUD_VERSION : '2022.0.2',
     SPRING_CLOUD_AWS_VERSION : '3.0.0-M3',
