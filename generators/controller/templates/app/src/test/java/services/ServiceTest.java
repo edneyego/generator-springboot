@@ -6,8 +6,8 @@ import static org.mockito.BDDMockito.times;
 import static org.mockito.BDDMockito.verify;
 import static org.mockito.BDDMockito.willDoNothing;
 
-import <%= packageName %>.entities.<%= entityName %>;
-import <%= packageName %>.model.response.PagedResult;
+import <%= packageName %>.domain.entities.<%= entityName %>;
+import <%= packageName %>.application.adapters.model.response.PagedResult;
 import <%= packageName %>.repositories.<%= entityName %>Repository;
 import java.util.List;
 import java.util.Optional;

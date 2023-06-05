@@ -5,7 +5,7 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import <%= packageName %>.entities.<%= entityName %>;
+import <%= packageName %>.domain.entities.<%= entityName %>;
 
 @Repository
 public interface <%= entityName %>Repository extends JpaRepository<<%= entityName %>, Long> {

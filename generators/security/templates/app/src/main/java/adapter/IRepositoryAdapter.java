@@ -1,7 +1,7 @@
 package <%= packageName %>.adapter;
 
 import <%= packageName %>.mapper.<%= entityName %>Mapper;
-import <%= packageName %>.entities.<%= entityName %>;
+import <%= packageName %>.domain.entities.<%= entityName %>;
 
 import java.util.Optional;
 

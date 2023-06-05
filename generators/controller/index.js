@@ -71,21 +71,23 @@ module.exports = class extends BaseGenerator {
         if(this.configOptions.formatCode !== false) {
             this._formatCode(this.configOptions);
         }
-    }
+    }    
 
     _generateAppCode(configOptions) {
         const mainJavaTemplates = [
-            {src: 'entities/Entity.java', dest: 'entities/'+configOptions.entityName+'.java'},
-            {src: 'model/response/PagedResult.java', dest: 'model/response/PagedResult.java'},
-            {src: 'repositories/Repository.java', dest: 'repositories/'+configOptions.entityName+'Repository.java'},
-            {src: 'services/Service.java', dest: 'services/'+configOptions.entityName+'Service.java'},
-            {src: 'controllers/Controller.java', dest: 'controllers/'+configOptions.entityName+'Controller.java'},
+            {src: 'domain/entities/Entity.java', dest: 'domain/entities/'+configOptions.entityName+'.java'},
+            {src: 'application/adapters/model/response/PagedResult.java', dest: 'application/adapters/model/response/PagedResult.java'},
+            {src: 'domain/ports/repositories/RepositoryPort.java', dest: 'domain/ports/repositories/'+configOptions.entityName+'RepositoryPort.java'},
+            {src: 'infrastructure/adapters/repositories/Repository.java', dest: 'infrastructure/adapters/repositories/'+configOptions.entityName+'Repository.java'},
+            {src: 'domain/adapters/services/ServiceImpl.java', dest: 'domain/adapters/services/'+configOptions.entityName+'ServiceImpl.java'},
+            {src: 'infrastructure/adapters/interface/ServicePort.java', dest: 'infrastructure/adapters/interface/'+configOptions.entityName+'ServicePort.java'},
+            {src: 'application/adapters/controllers/Controller.java', dest: 'application/adapters/controllers/'+configOptions.entityName+'Controller.java'},
         ];
         this.generateMainJavaCode(configOptions, mainJavaTemplates);
 
         const testJavaTemplates = [
-            {src: 'controllers/ControllerTest.java', dest: 'controllers/'+configOptions.entityName+'ControllerTest.java'},
-            {src: 'controllers/ControllerIT.java', dest: 'controllers/'+configOptions.entityName+'ControllerIT.java'},
+            {src: 'application/adapters/controllers/ControllerTest.java', dest: 'application/adapters/controllers/'+configOptions.entityName+'ControllerTest.java'},
+            {src: 'application/adapters/controllers/ControllerIT.java', dest: 'application/adapters/controllers/'+configOptions.entityName+'ControllerIT.java'},
             {src: 'services/ServiceTest.java', dest: 'services/'+configOptions.entityName+'ServiceTest.java'},
         ];
         this.generateTestJavaCode(configOptions, testJavaTemplates);

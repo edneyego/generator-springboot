@@ -1,4 +1,4 @@
-package <%= packageName %>.controllers;
+package <%= packageName %>.application.adapters.controllers;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
@@ -12,7 +12,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import <%= packageName %>.common.AbstractIntegrationTest;
-import <%= packageName %>.entities.<%= entityName %>;
+import <%= packageName %>.domain.entities.<%= entityName %>;
 import <%= packageName %>.repositories.<%= entityName %>Repository;
 import java.util.ArrayList;
 import java.util.List;

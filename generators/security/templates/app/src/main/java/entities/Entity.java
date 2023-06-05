@@ -1,4 +1,4 @@
-package <%= packageName %>.entities;
+package <%= packageName %>.domain.entities;
 
 import java.util.HashSet;
 import java.util.Set;

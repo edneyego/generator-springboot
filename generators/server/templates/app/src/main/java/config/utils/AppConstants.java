@@ -1,4 +1,4 @@
-package <%= packageName %>.utils;
+package <%= packageName %>.config.utils;
 
 public final class AppConstants {
     public static final String PROFILE_PROD = "prod";

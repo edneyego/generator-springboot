@@ -2,7 +2,7 @@ package <%= packageName %>.adapter;
 
 import java.util.Optional;
 import <%= packageName %>.repositories.<%= entityName %>Repository;
-import <%= packageName %>.entities.<%= entityName %>;
+import <%= packageName %>.domain.entities.<%= entityName %>;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import <%= packageName %>.mapper.<%= entityName %>Mapper;

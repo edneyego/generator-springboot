@@ -1,4 +1,4 @@
-package <%= packageName %>.controllers;
+package <%= packageName %>.application.adapters.controllers;
 
 import static <%= packageName %>.utils.AppConstants.PROFILE_TEST;
 import static org.hamcrest.CoreMatchers.is;
@@ -16,8 +16,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import <%= packageName %>.entities.<%= entityName %>;
-import <%= packageName %>.model.response.PagedResult;
+import <%= packageName %>.domain.entities.<%= entityName %>;
+import <%= packageName %>.application.adapters.model.response.PagedResult;
 import <%= packageName %>.services.<%= entityName %>Service;
 import java.util.ArrayList;
 import java.util.List;

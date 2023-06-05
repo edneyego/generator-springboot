@@ -1,8 +1,8 @@
-package <%= packageName %>.controllers;
+package <%= packageName %>.application.adapters.controllers;
 
-import <%= packageName %>.entities.<%= entityName %>;
-import <%= packageName %>.model.response.PagedResult;
-import <%= packageName %>.services.<%= entityName %>Service;
+import <%= packageName %>.domain.entities.<%= entityName %>;
+import <%= packageName %>.application.adapters.model.response.PagedResult;
+import <%= packageName %>.domain.ports.interfaces.<%= entityName %>ServicePort;
 import <%= packageName %>.utils.AppConstants;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
@@ -34,7 +34,7 @@ import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 <% } %>
 public class <%= entityName %>Controller {
 
-    private final <%= entityName %>Service <%= entityVarName %>Service;
+    private final <%= entityName %>ServicePort <%= entityVarName %>Service;
 
     @Autowired
     public <%= entityName %>Controller(<%= entityName %>Service <%= entityVarName %>Service) {

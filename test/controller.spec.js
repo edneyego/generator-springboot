@@ -40,7 +40,7 @@ describe('SpringBoot Generator', () => {
         });
 
         it('creates expected default files for CRUD API with Liquibase', () => {
-            assert.file('src/main/java/com/mycompany/myservice/entities/Customer.java');
+            assert.file('src/main/java/com/mycompany/myservice/domain/entities/Customer.java');
             assert.file('src/main/java/com/mycompany/myservice/repositories/CustomerRepository.java');
             assert.file('src/main/java/com/mycompany/myservice/services/CustomerService.java');
             assert.file('src/main/java/com/mycompany/myservice/controllers/CustomerController.java');

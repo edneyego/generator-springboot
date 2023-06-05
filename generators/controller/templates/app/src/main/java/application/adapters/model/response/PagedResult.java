@@ -1,4 +1,4 @@
-package <%= packageName %>.model.response;
+package <%= packageName %>.application.adapters.model.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
