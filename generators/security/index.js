@@ -60,7 +60,7 @@ module.exports = class extends BaseGenerator {
             {src: 'application/adapters/controllers/RegistrationController.java', dest: 'application/adapters/controllers/RegistrationController.java'},
             
 
-            {src: 'domain/adapters/adapters/ServiceImpl.java', dest: 'domain/adapters/adapters/'+configOptions.entityName+'ServiceImpl.java'},
+            {src: 'domain/adapters/ServiceImpl.java', dest: 'domain/adapters/'+configOptions.entityName+'ServiceImpl.java'},
             {src: 'domain/adapters/services/UserDetailsServiceImpl.java', dest: 'domain/adapters/services/UserDetailsServiceImpl.java'},
             {src: 'domain/adapters/services/UserDetailsImpl.java', dest: 'domain/adapters/services/UserDetailsImpl.java'},
             {src: 'domain/dtos/Entity.java', dest: 'domain/dtos/'+configOptions.entityName+'DTO.java'},
