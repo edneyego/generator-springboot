@@ -1,4 +1,4 @@
-package <%= packageName %>.security.controllers;
+package <%= packageName %>.applicaion.adapters.controllers;
 
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -23,14 +23,14 @@ import lombok.extern.slf4j.Slf4j;
 public class RegistrationController {
 
     @Autowired
-    private I<%= entityName %>RepositoryAdapter userService;
+    private <%= entityName %>ServicePort servicePort;
 
     @Autowired
     private ApplicationEventPublisher publisher;
 
     @PostMapping("/register")
     public ResponseEntity<String> registerUser(@RequestBody <%= entityName %> userModel, final HttpServletRequest request) {
-        <%= entityName %> user = userService.registerUser((<%= entityName %>Mapper) Converter.toModel(userModel,<%= entityName %>Mapper.class));
+        <%= entityName %> user = servicePort.registerUser((<%= entityName %>Mapper) Converter.toModel(userModel,<%= entityName %>Mapper.class));
        
         return ResponseEntity.ok().body("Success");
     }

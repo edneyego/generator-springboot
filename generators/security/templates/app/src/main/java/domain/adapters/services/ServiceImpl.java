@@ -10,24 +10,17 @@ import <%= packageName %>.mapper.Converter;
 import org.springframework.stereotype.Component;
 
 @Component
-public class <%= entityName %>RepositoryAdapter implements I<%= entityName %>RepositoryAdapter {
+public class <%= entityName %>ServiceImpl implements <%= entityName %>ServicePort {
 
   @Autowired
   private PasswordEncoder passwordEncoder;
 
   @Autowired
-  private <%= entityName %>Repository userRepository;
-
-  public Optional<<%= entityName %>> findByUsername(String username){
-    return null;
-  }
+  private <%= entityName %>RepositoryPort repositoryPort;
 
   public <%= entityName %> registerUser(<%= entityName %>Mapper <%= entityVarName %>){
     <%= entityVarName %>.setPassword(passwordEncoder.encode(<%= entityVarName %>.getPassword()));
-    return userRepository.save((<%= entityName %>) Converter.toModel(<%= entityVarName %>, <%= entityName %>.class));
+    return repositoryPort.save((<%= entityName %>) Converter.toModel(<%= entityVarName %>, <%= entityName %>.class));
   }
 
-  public Boolean existsByEmail(String email){
-    return null;
-  }
 }

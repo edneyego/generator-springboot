@@ -1,4 +1,4 @@
-package <%= packageName %>.security.services;
+package <%= packageName %>.domain.adapters.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import <%= packageName %>.domain..<%= entityName %>;
-import <%= packageName %>.repositories.<%= entityName %>Repository;
+import <%= packageName %>.infrastructure.adapters.repositories.<%= entityName %>Repository;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {

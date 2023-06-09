@@ -52,28 +52,30 @@ module.exports = class extends BaseGenerator {
 
     _generateAppCode(configOptions) {
         const mainJavaTemplates = [
-            {src: 'security/WebSecurityConfig.java', dest: 'security/WebSecurityConfig.java'},
-            {src: 'security/services/UserDetailsImpl.java', dest: 'security/services/UserDetailsImpl.java'},
-            {src: 'security/services/UserDetailsServiceImpl.java', dest: 'security/services/UserDetailsServiceImpl.java'},
-            {src: 'security/jwt/AuthEntryPointJwt.java', dest: 'security/jwt/AuthEntryPointJwt.java'},
-            {src: 'security/jwt/AuthTokenFilter.java', dest: 'security/jwt/AuthTokenFilter.java'},
-            {src: 'security/jwt/JwtUtils.java', dest: 'security/jwt/JwtUtils.java'},
+            {src: 'application/adapters/controllers/request/JwtRequest.java', dest: 'application/adapters/controllers/request/JwtRequest.java'},
+            {src: 'application/adapters/controllers/response/JwtResponse.java', dest: 'application/adapters/controllers/response/JwtResponse.java'},
+            {src: 'application/adapters/mapper/Converter.java', dest: 'application/adapters/mapper/Converter.java'},
+            {src: 'application/adapters/mapper/Entity.java', dest: 'application/adapters/mapper/'+configOptions.entityName+'Mapper.java'},
+            {src: 'application/adapters/controllers/JwtAuthenticationController.java', dest: 'application/adapters/controllers/JwtAuthenticationController.java'},
+            {src: 'application/adapters/controllers/RegistrationController.java', dest: 'application/adapters/controllers/RegistrationController.java'},
+            
 
-            {src: 'security/controllers/JwtAuthenticationController.java', dest: 'security/controllers/JwtAuthenticationController.java'},
-            {src: 'security/controllers/RegistrationController.java', dest: 'security/controllers/RegistrationController.java'},
-
-            {src: 'entities/Entity.java', dest: 'entities/'+configOptions.entityName+'.java'},//ok
-
-            {src: 'repositories/UserRepository.java', dest: 'repositories/'+configOptions.entityName+'Repository.java'},
-            {src: 'adapter/RepositoryAdapter.java', dest: 'adapter/'+configOptions.entityName+'RepositoryAdapter.java'},
-            {src: 'adapter/IRepositoryAdapter.java', dest: 'adapter/I'+configOptions.entityName+'RepositoryAdapter.java'},
-
-            {src: 'dto/Entity.java', dest: 'dto/'+configOptions.entityName+'DTO.java'},
-            {src: 'dto/JwtRequest.java', dest: 'dto/JwtRequest.java'},
-            {src: 'dto/JwtResponse.java', dest: 'dto/JwtResponse.java'},
-            {src: 'mapper/Entity.java', dest: 'mapper/'+configOptions.entityName+'Mapper.java'},
-            {src: 'mapper/Converter.java', dest: 'mapper/Converter.java'},
-            {src: 'config/SwaggerConfig.java', dest: 'config/SwaggerConfig.java'},
+            {src: 'domain/adapters/adapters/ServiceImpl.java', dest: 'domain/adapters/adapters/'+configOptions.entityName+'ServiceImpl.java'},
+            {src: 'domain/adapters/services/UserDetailsServiceImpl.java', dest: 'domain/adapters/services/UserDetailsServiceImpl.java'},
+            {src: 'domain/adapters/services/UserDetailsImpl.java', dest: 'domain/adapters/services/UserDetailsImpl.java'},
+            {src: 'domain/dtos/Entity.java', dest: 'domain/dtos/'+configOptions.entityName+'DTO.java'},
+            {src: 'domain/ports/interface/ServicePort.java', dest: 'domain/ports/interface/'+configOptions.entityName+'ServicePort.java'},
+            {src: 'domain/ports/repositories/RepositoryPort.java', dest: 'domain/ports/repositories/'+configOptions.entityName+'RepositoryPort.java'},
+            
+            {src: 'infrastructure/adapters/entities/Entity.java', dest: 'infrastructure/adapters/entities/'+configOptions.entityName+'Entity.java'},
+            {src: 'infrastructure/adapters/filter/AuthEntryPointJwt.java', dest: 'infrastructure/adapters/filter/AuthEntryPointJwt.java'},
+            {src: 'infrastructure/adapters/filter/AuthTokenFilter.java', dest: 'infrastructure/adapters/filter/AuthTokenFilter.java'},
+            {src: 'infrastructure/adapters/repositories/Repository.java', dest: 'infrastructure/adapters/repositories/'+configOptions.entityName+'Repository.java'},
+            {src: 'infrastructure/adapters/repositories/SpringRepository.java', dest: 'infrastructure/adapters/repositories/Spring'+configOptions.entityName+'Repository.java'},
+            {src: 'infrastructure/config/utils/JwtUtils.java', dest: 'infrastructure/config/utils/JwtUtils.java'},
+            {src: 'infrastructure/config/SwaggerConfig.java', dest: 'infrastructure/config/SwaggerConfig.java'},
+            {src: 'infrastructure/config/WebSecurityConfig.java', dest: 'infrastructure/config/WebSecurityConfig.java'},
+            
             
         ];
         this.generateMainJavaCode(configOptions, mainJavaTemplates);

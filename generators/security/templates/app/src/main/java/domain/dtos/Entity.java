@@ -1,4 +1,4 @@
-package <%= packageName %>.dto;
+package <%= packageName %>.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

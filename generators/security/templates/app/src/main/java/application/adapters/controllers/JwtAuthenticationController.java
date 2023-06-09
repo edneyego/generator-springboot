@@ -1,4 +1,4 @@
-package <%= packageName %>.security.controllers;
+package <%= packageName %>.applicaion.adapters.controllers;
 
 import java.util.Objects;
 

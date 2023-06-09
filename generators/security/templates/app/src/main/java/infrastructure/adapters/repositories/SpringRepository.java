@@ -1,4 +1,4 @@
-package <%= packageName %>.repositories;
+package <%= packageName %>.infrastructure.adapters.repositories;
 
 import java.util.Optional;
 
@@ -8,11 +8,10 @@ import org.springframework.stereotype.Repository;
 import <%= packageName %>.domain.entities.<%= entityName %>;
 
 @Repository
-public interface <%= entityName %>Repository extends JpaRepository<<%= entityName %>, Long> {
+public interface Spring<%= entityName %>Repository extends JpaRepository<<%= entityName %>, Long> {
   
   Optional<<%= entityName %>> findByUsername(String username);
 
   Boolean existsByUsername(String username);
 
-  Boolean existsByEmail(String email);
 }

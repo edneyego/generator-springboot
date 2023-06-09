@@ -1,4 +1,4 @@
-package <%= packageName %>.security;
+package <%= packageName %>.infrastructure.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -14,9 +14,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import <%= packageName %>.security.jwt.AuthEntryPointJwt;
-import <%= packageName %>.security.jwt.AuthTokenFilter;
-import <%= packageName %>.security.services.UserDetailsServiceImpl;
+import <%= packageName %>.infrastructure.adapters.filter.AuthEntryPointJwt;
+import <%= packageName %>.infrastructure.adapters.filter.AuthTokenFilter;
+import <%= packageName %>.domain.adapters.services.UserDetailsServiceImpl;
 
 @Configuration
 @EnableWebSecurity
