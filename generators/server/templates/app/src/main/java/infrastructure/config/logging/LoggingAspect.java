@@ -1,6 +1,6 @@
-package <%= packageName %>.config.logging;
+package <%= packageName %>.infrastructure.config.logging;
 
-import <%= packageName %>.utils.AppConstants;
+import <%= packageName %>.infrastructure.config.utils.AppConstants;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.AfterThrowing;
@@ -34,8 +34,8 @@ public class LoggingAspect {
     }
 
     @Pointcut(
-            "@within(<%= packageName %>.config.logging.Loggable) || "
-                    + "@annotation(<%= packageName %>.config.logging.Loggable)")
+            "@within(<%= packageName %>.infrastructure.config.logging.Loggable) || "
+                    + "@annotation(<%= packageName %>.infrastructure.config.logging.Loggable)")
     public void applicationPackagePointcut() {
         // pointcut definition
     }

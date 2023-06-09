@@ -1,4 +1,4 @@
-package <%= packageName %>.config.logging;
+package <%= packageName %>.infrastructure.config.logging;
 
 import static java.lang.annotation.ElementType.METHOD;
 import static java.lang.annotation.ElementType.TYPE;

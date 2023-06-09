@@ -1,4 +1,4 @@
-package <%= packageName %>.config;
+package <%= packageName %>.infrastructure.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

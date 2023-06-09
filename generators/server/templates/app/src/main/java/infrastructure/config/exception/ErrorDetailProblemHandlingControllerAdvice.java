@@ -1,4 +1,4 @@
-package <%= packageName %>.config.exception;
+package <%= packageName %>.infrastructure.config.exception;
 
 import java.util.List;
 import java.util.Objects;

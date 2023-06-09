@@ -1,4 +1,4 @@
-package <%= packageName %>.config;
+package <%= packageName %>.infrastructure.config;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
