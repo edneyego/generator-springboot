@@ -1,4 +1,4 @@
-package <%= packageName %>.applicaion.adapters.controllers;
+package <%= packageName %>.application.adapters.controllers;
 
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -10,10 +10,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import <%= packageName %>.mapper.Converter;
-import <%= packageName %>.mapper.<%= entityName %>Mapper;
-import <%= packageName %>.domain.entities.<%= entityName %>;
-import <%= packageName %>.adapter.I<%= entityName %>RepositoryAdapter;
+
+import <%= packageName %>.infrastructure.adapters.entities.<%= entityName %>Entity;
+import <%= packageName %>.domain.ports.interfaces.<%= entityName %>ServicePort;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -29,8 +28,8 @@ public class RegistrationController {
     private ApplicationEventPublisher publisher;
 
     @PostMapping("/register")
-    public ResponseEntity<String> registerUser(@RequestBody <%= entityName %> userModel, final HttpServletRequest request) {
-        <%= entityName %> user = servicePort.registerUser((<%= entityName %>Mapper) Converter.toModel(userModel,<%= entityName %>Mapper.class));
+    public ResponseEntity<String> registerUser(@RequestBody <%= entityName %>Entity userModel, final HttpServletRequest request) {
+        <%= entityName %>Entity user = servicePort.registerUser((<%= entityName %>Mapper) Converter.toModel(userModel,<%= entityName %>Mapper.class));
        
         return ResponseEntity.ok().body("Success");
     }

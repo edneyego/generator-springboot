@@ -1,6 +1,18 @@
-package <%= packageName %>.dto;
+package <%= packageName %>.application.adapters.controllers.request;
 
 import java.io.Serializable;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+
+@Getter
+@Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class JwtRequest implements Serializable {
 
     private static final long serialVersionUID = 5926468583005150707L;

@@ -1,4 +1,4 @@
-package <%= packageName %>.applicaion.adapters.controllers;
+package <%= packageName %>.application.adapters.controllers;
 
 import java.util.Objects;
 
@@ -15,9 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import <%= packageName %>.security.jwt.JwtUtils;
-import <%= packageName %>.dto.JwtRequest;
-import <%= packageName %>.dto.JwtResponse;
+import <%= packageName %>.application.adapters.controllers.request.JwtRequest;
+import <%= packageName %>.application.adapters.controllers.response.JwtResponse;
 import <%= packageName %>.security.services.UserDetailsImpl;
 import <%= packageName %>.security.services.UserDetailsServiceImpl;
 

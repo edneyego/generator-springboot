@@ -1,4 +1,4 @@
-package <%= packageName %>.adapter;
+package <%= packageName %>.domain.adapters.services;
 
 import java.util.Optional;
 import <%= packageName %>.repositories.<%= entityName %>Repository;
@@ -18,9 +18,9 @@ public class <%= entityName %>ServiceImpl implements <%= entityName %>ServicePor
   @Autowired
   private <%= entityName %>RepositoryPort repositoryPort;
 
-  public <%= entityName %> registerUser(<%= entityName %>Mapper <%= entityVarName %>){
+  public <%= entityName %>Entity registerUser(<%= entityName %>EntityMapper <%= entityVarName %>){
     <%= entityVarName %>.setPassword(passwordEncoder.encode(<%= entityVarName %>.getPassword()));
-    return repositoryPort.save((<%= entityName %>) Converter.toModel(<%= entityVarName %>, <%= entityName %>.class));
+    return repositoryPort.save((<%= entityName %>Entity) Converter.toModel(<%= entityVarName %>, <%= entityName %>Entity.class));
   }
 
 }

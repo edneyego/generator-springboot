@@ -1,10 +1,10 @@
 package <%= packageName %>.infrastructure.adapters.repositories;
 
 import java.util.Optional;
-
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
-import <%= packageName %>.domain.entities.<%= entityName %>;
+import <%= packageName %>.infrastructure.adapters.entities.<%= entityName %>;
 import <%= packageName %>.domain.ports.repositories.<%= entityName %>RepositoryPort;
 
 @Component
@@ -13,14 +13,18 @@ public class <%= entityName %>Repository implements <%= entityName %>RepositoryP
   
     private final Spring<%= entityName %>Repository springRepository;
 
+    public <%= entityName %>Repository(Spring<%= entityName %>Repository springRepository) {
+        this.springRepository = springRepository;
+    }
+
     @Override
-    public Optional<<%= entityName %>> findByUsername(String username){
+    public Optional<<%= entityName %>Entity> findByUsername(String username){
         return springRepository.findByUsername(username);
     }
 
     @Override
-    public Boolean existsByUsername(String username){
-        return springRepository.existsByUsername(username);
+    public <%= entityName %>Entity save(<%= entityName %>Entity <%= entityVarName %>) {
+        return springRepository.save(<%= entityVarName %>);
     }
 
 }

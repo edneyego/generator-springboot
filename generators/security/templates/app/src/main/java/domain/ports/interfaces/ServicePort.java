@@ -1,12 +1,12 @@
 package <%= packageName %>.domain.ports.interfaces;
 
 import <%= packageName %>.mapper.<%= entityName %>Mapper;
-import <%= packageName %>.domain.entities.<%= entityName %>;
+import <%= packageName %>.infrastructure.adapters.entities<%= entityName %>Entity;
 
 import java.util.Optional;
 
 public interface <%= entityName %>ServicePort {
 
-    public <%= entityName %> registerUser(<%= entityName %>Mapper <%= entityName %>);
+    public <%= entityName %>Entity registerUser(<%= entityName %>Mapper <%= entityName %>);
 
 }

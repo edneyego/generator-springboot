@@ -1,4 +1,4 @@
-package <%= packageName %>.dto;
+package <%= packageName %>.application.adapters.controllers.response;
 
 import java.io.Serializable;
 

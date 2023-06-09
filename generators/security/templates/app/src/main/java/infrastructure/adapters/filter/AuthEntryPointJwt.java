@@ -1,4 +1,4 @@
-package <%= packageName %>.security.jwt;
+package <%= packageName %>.infrastructure.adapters.filter;
 
 import java.io.IOException;
 import java.util.HashMap;
