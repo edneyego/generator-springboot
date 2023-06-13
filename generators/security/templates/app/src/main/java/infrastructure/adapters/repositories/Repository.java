@@ -4,7 +4,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
-import <%= packageName %>.infrastructure.adapters.entities.<%= entityName %>;
+import <%= packageName %>.infrastructure.adapters.entities.<%= entityName %>Entity;
 import <%= packageName %>.domain.ports.repositories.<%= entityName %>RepositoryPort;
 
 @Component

@@ -18,6 +18,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import <%= packageName %>.domain.adapters.services.UserDetailsServiceImpl;
+import <%= packageName %>.infrastructure.config.utils.JwtUtils;
 public class AuthTokenFilter extends OncePerRequestFilter {
   @Autowired
   private JwtUtils jwtUtils;

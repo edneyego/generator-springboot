@@ -1,4 +1,4 @@
-package <%= packageName %>.security.jwt;
+package <%= packageName %>.infrastructure.config.utils;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;

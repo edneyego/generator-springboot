@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import <%= packageName %>.application.adapters.controllers.request.JwtRequest;
 import <%= packageName %>.application.adapters.controllers.response.JwtResponse;
-import <%= packageName %>.security.services.UserDetailsImpl;
-import <%= packageName %>.security.services.UserDetailsServiceImpl;
+
+import <%= packageName %>.domain.adapters.services.UserDetailsServiceImpl;
 
 import java.util.Objects;
 

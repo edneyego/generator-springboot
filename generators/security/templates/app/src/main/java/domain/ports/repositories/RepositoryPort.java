@@ -1,6 +1,5 @@
 package <%= packageName %>.domain.ports.repositories;
 
-import <%= packageName %>.mapper.<%= entityName %>Mapper;
 import <%= packageName %>.infrastructure.adapters.entities.<%= entityName %>Entity;
 
 import java.util.Optional;

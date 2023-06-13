@@ -1,7 +1,7 @@
 package <%= packageName %>.domain.ports.interfaces;
 
-import <%= packageName %>.mapper.<%= entityName %>Mapper;
-import <%= packageName %>.infrastructure.adapters.entities<%= entityName %>Entity;
+import <%= packageName %>.application.adapters.mapper.<%= entityName %>Mapper;
+import <%= packageName %>.infrastructure.adapters.entities.<%= entityName %>Entity;
 
 import java.util.Optional;
 

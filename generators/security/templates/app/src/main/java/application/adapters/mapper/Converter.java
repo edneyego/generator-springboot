@@ -1,4 +1,4 @@
-package <%= packageName %>.mapper;
+package <%= packageName %>.application.adapters.mapper;
 
 import java.lang.reflect.Field;
 import java.util.List;

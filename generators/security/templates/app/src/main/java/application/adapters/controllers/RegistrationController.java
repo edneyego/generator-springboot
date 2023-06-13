@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 import <%= packageName %>.infrastructure.adapters.entities.<%= entityName %>Entity;
 import <%= packageName %>.domain.ports.interfaces.<%= entityName %>ServicePort;
 
+import <%= packageName %>.application.adapters.mapper.<%= entityName %>Mapper;
+
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
