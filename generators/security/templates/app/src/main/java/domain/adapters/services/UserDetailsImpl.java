@@ -9,8 +9,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-
-import <%= packageName %>.infrastructure.adapters.entities.<%= entityName %>Entity;
+import <%= packageName %>.domain.<%= entityName %>;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class UserDetailsImpl implements UserDetails {
@@ -36,7 +35,7 @@ public class UserDetailsImpl implements UserDetails {
     this.authorities = authorities;
   }
 
-  public static UserDetailsImpl build(<%= entityName %>Entity user) {
+  public static UserDetailsImpl build(<%= entityName %> user) {
 
     return new UserDetailsImpl(
         user.getId(), 

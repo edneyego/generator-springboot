@@ -21,12 +21,13 @@ public class <%= entityName %>Repository implements <%= entityName %>RepositoryP
 
     @Override
     public Optional<<%= entityName %>> findByUsername(String username){
-        return (<%= entityName %>Mapper) Converter.toModel(springRepository.findByUsername(username),<%= entityName %>Mapper.class);
+        return (Optional<<%= entityName %>>) Converter.toModel(springRepository.findByUsername(username), <%= entityName %>Mapper.class);
     }
 
     @Override
     public <%= entityName %> save(<%= entityName %> <%= entityVarName %>) {
-        return (<%= entityName %>Mapper) Converter.toModel(springRepository.save(<%= entityVarName %>),<%= entityName %>Mapper.class);
+        <%= entityName %>Entity entity=  (<%= entityName %>Entity) Converter.toModel(<%= entityVarName %>,<%= entityName %>Mapper.class);
+        return (<%= entityName %>) Converter.toModel(springRepository.save(entity),<%= entityName %>Mapper.class);
     }
 
 }
