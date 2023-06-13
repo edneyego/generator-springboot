@@ -15,6 +15,7 @@ import <%= packageName %>.infrastructure.adapters.entities.<%= entityName %>Enti
 import <%= packageName %>.domain.ports.interfaces.<%= entityName %>ServicePort;
 
 import <%= packageName %>.application.adapters.mapper.<%= entityName %>Mapper;
+import <%= packageName %>.application.adapters.mapper.Converter;
 
 import lombok.extern.slf4j.Slf4j;
 
