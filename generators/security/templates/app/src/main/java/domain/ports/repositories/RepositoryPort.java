@@ -1,13 +1,13 @@
 package <%= packageName %>.domain.ports.repositories;
 
-import <%= packageName %>.infrastructure.adapters.entities.<%= entityName %>Entity;
+import <%= packageName %>.domain.<%= entityName %>;
 
 import java.util.Optional;
 
 public interface <%= entityName %>RepositoryPort {
 
-    public Optional<<%= entityName %>Entity> findByUsername(String username);
+    public Optional<<%= entityName %>> findByUsername(String username);
 
-    public <%= entityName %>Entity save(<%= entityName %>Entity <%= entityVarName %>);
+    public <%= entityName %> save(<%= entityName %> <%= entityVarName %>);
 
 }

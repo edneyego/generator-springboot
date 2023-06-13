@@ -4,8 +4,10 @@ import java.util.Optional;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
-import <%= packageName %>.infrastructure.adapters.entities.<%= entityName %>Entity;
+import <%= packageName %>.domain.<%= entityName %>;
 import <%= packageName %>.domain.ports.repositories.<%= entityName %>RepositoryPort;
+import <%= packageName %>.application.adapters.mapper.<%= entityName %>Mapper;
+import <%= packageName %>.application.adapters.mapper.Converter;
 
 @Component
 @Repository
@@ -18,13 +20,13 @@ public class <%= entityName %>Repository implements <%= entityName %>RepositoryP
     }
 
     @Override
-    public Optional<<%= entityName %>Entity> findByUsername(String username){
-        return springRepository.findByUsername(username);
+    public Optional<<%= entityName %>> findByUsername(String username){
+        return (<%= entityName %>Mapper) Converter.toModel(springRepository.findByUsername(username),<%= entityName %>Mapper.class);
     }
 
     @Override
-    public <%= entityName %>Entity save(<%= entityName %>Entity <%= entityVarName %>) {
-        return springRepository.save(<%= entityVarName %>);
+    public <%= entityName %> save(<%= entityName %> <%= entityVarName %>) {
+        return (<%= entityName %>Mapper) Converter.toModel(springRepository.save(<%= entityVarName %>),<%= entityName %>Mapper.class);
     }
 
 }

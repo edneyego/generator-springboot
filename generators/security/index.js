@@ -63,9 +63,10 @@ module.exports = class extends BaseGenerator {
             {src: 'domain/adapters/services/ServiceImpl.java', dest: 'domain/adapters/services/'+configOptions.entityName+'ServiceImpl.java'},
             {src: 'domain/adapters/services/UserDetailsServiceImpl.java', dest: 'domain/adapters/services/UserDetailsServiceImpl.java'},
             {src: 'domain/adapters/services/UserDetailsImpl.java', dest: 'domain/adapters/services/UserDetailsImpl.java'},
-            {src: 'domain/dtos/Entity.java', dest: 'domain/dtos/'+configOptions.entityName+'DTO.java'},
+            {src: 'domain/dtos/DTO.java', dest: 'domain/dtos/'+configOptions.entityName+'DTO.java'},
             {src: 'domain/ports/interfaces/ServicePort.java', dest: 'domain/ports/interfaces/'+configOptions.entityName+'ServicePort.java'},
             {src: 'domain/ports/repositories/RepositoryPort.java', dest: 'domain/ports/repositories/'+configOptions.entityName+'RepositoryPort.java'},
+            {src: 'domain/DomainModel.java', dest: 'domain/'+configOptions.entityName+'.java'},
             
             {src: 'infrastructure/adapters/entities/Entity.java', dest: 'infrastructure/adapters/entities/'+configOptions.entityName+'Entity.java'},
             {src: 'infrastructure/adapters/filter/AuthEntryPointJwt.java', dest: 'infrastructure/adapters/filter/AuthEntryPointJwt.java'},

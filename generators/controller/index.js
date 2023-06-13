@@ -75,13 +75,15 @@ module.exports = class extends BaseGenerator {
 
     _generateAppCode(configOptions) {
         const mainJavaTemplates = [
-            {src: 'domain/entities/Entity.java', dest: 'domain/entities/'+configOptions.entityName+'.java'},
             {src: 'application/adapters/model/response/PagedResult.java', dest: 'application/adapters/model/response/PagedResult.java'},
-            {src: 'domain/ports/repositories/RepositoryPort.java', dest: 'domain/ports/repositories/'+configOptions.entityName+'RepositoryPort.java'},
-            {src: 'infrastructure/adapters/repositories/Repository.java', dest: 'infrastructure/adapters/repositories/'+configOptions.entityName+'Repository.java'},
-            {src: 'domain/adapters/services/ServiceImpl.java', dest: 'domain/adapters/services/'+configOptions.entityName+'ServiceImpl.java'},
-            {src: 'infrastructure/adapters/interface/ServicePort.java', dest: 'infrastructure/adapters/interface/'+configOptions.entityName+'ServicePort.java'},
             {src: 'application/adapters/controllers/Controller.java', dest: 'application/adapters/controllers/'+configOptions.entityName+'Controller.java'},
+            {src: 'domain/ports/repositories/RepositoryPort.java', dest: 'domain/ports/repositories/'+configOptions.entityName+'RepositoryPort.java'},
+            {src: 'domain/adapters/services/ServiceImpl.java', dest: 'domain/adapters/services/'+configOptions.entityName+'ServiceImpl.java'},
+            {src: 'domain/entities/Entity.java', dest: 'domain/entities/'+configOptions.entityName+'Entity.java'},
+            {src: 'domain/ports/interfaces/ServicePort.java', dest: 'domain/ports/interfaces/'+configOptions.entityName+'ServicePort.java'},
+            {src: 'domain/ports/repositories/RepositoryPort.java', dest: 'domain/ports/repositories/'+configOptions.entityName+'RepositoryPort.java'},
+            {src: 'infrastructure/adapters/entities/Entity.java', dest: 'infrastructure/adapters/entities/'+configOptions.entityName+'Entity.java'},
+            {src: 'infrastructure/adapters/repositories/Repository.java', dest: 'infrastructure/adapters/repositories/'+configOptions.entityName+'Repository.java'},
         ];
         this.generateMainJavaCode(configOptions, mainJavaTemplates);
 

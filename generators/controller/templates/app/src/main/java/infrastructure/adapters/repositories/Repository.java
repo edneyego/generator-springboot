@@ -1,4 +1,4 @@
-package <%= packageName %>.repositories;
+package <%= packageName %>.infrastructure.adapters.repositories;
 
 import <%= packageName %>.domain.entities.<%= entityName %>;
 import org.springframework.data.jpa.repository.JpaRepository;
