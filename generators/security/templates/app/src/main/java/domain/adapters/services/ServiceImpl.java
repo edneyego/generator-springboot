@@ -6,6 +6,7 @@ import <%= packageName %>.infrastructure.adapters.entities.<%= entityName %>Enti
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import <%= packageName %>.application.adapters.mapper.<%= entityName %>Mapper;
+import <%= packageName %>.application.adapters.mapper.Converter;
 import org.springframework.stereotype.Component;
 
 @Component

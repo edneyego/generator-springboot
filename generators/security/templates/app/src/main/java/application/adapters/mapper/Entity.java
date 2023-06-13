@@ -1,4 +1,4 @@
-package <%= packageName %>.mapper;
+package <%= packageName %>.application.adapters.mapper;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
