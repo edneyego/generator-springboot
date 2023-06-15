@@ -17,7 +17,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import com.fasterxml.jackson.databind.ObjectMapper;
 import <%= packageName %>.domain.<%= entityName %>;
 import <%= packageName %>.application.adapters.model.response.PagedResult;
-import <%= packageName %>.services.<%= entityName %>Service;
+import <%= packageName %>.domain.adapters.services.<%= entityName %>ServiceImpl;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -35,13 +35,15 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 
+import org.springframework.data.domain.Sort;
+
 @WebMvcTest(controllers = <%= entityName %>Controller.class)
 @ActiveProfiles(PROFILE_TEST)
 class <%= entityName %>ControllerTest {
 
     @Autowired private MockMvc mockMvc;
 
-    @MockBean private <%= entityName %>Service <%= entityVarName %>Service;
+    @MockBean private <%= entityName %>ServiceImpl <%= entityVarName %>Service;
 
     @Autowired private ObjectMapper objectMapper;
 
@@ -171,7 +173,7 @@ class <%= entityName %>ControllerTest {
         Long <%= entityVarName %>Id = 1L;
         <%= entityName %> <%= entityVarName %> = new <%= entityName %>(<%= entityVarName %>Id, "Some text");
         given(<%= entityVarName %>Service.findById(<%= entityVarName %>Id)).willReturn(Optional.of(<%= entityVarName %>));
-        doNothing().when(<%= entityVarName %>Service).delete<%= entityName %>ById(<%= entityVarName %>.getId());
+        doNothing().when(<%= entityVarName %>Service).deleteById(<%= entityVarName %>.getId());
 
         this.mockMvc
                 .perform(delete("<%= basePath %>/{id}", <%= entityVarName %>.getId()))
