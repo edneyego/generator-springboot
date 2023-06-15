@@ -12,6 +12,4 @@ public interface Spring<%= entityName %>Repository extends JpaRepository<<%= ent
   
   Optional<<%= entityName %>Entity> findByUsername(String username);
 
-  Boolean existsByUsername(String username);
-
 }
