@@ -1,6 +1,5 @@
 package <%= packageName %>.application.adapters.controllers;
-
-import static <%= packageName %>.utils.AppConstants.PROFILE_TEST;
+import static <%= packageName %>.infrastructure.config.utils.AppConstants.PROFILE_TEST;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.Matchers.hasSize;
@@ -32,6 +31,9 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 
 @WebMvcTest(controllers = <%= entityName %>Controller.class)
 @ActiveProfiles(PROFILE_TEST)
@@ -55,10 +57,12 @@ class <%= entityName %>ControllerTest {
 
     @Test
     void shouldFetchAll<%= entityName %>s() throws Exception {
+        Pageable pageable = PageRequest.of(0, 10, Sort.by(Sort.Direction.ASC, "id"));
+
         Page<<%= entityName %>> page = new PageImpl<>(<%= entityVarName %>List);
         PagedResult<<%= entityName %>> <%= entityVarName %>PagedResult = new PagedResult<>(page);
-        given(<%= entityVarName %>Service.findAll<%= entityName %>s(0, 10, "id", "asc"))
-                .willReturn(<%= entityVarName %>PagedResult);
+
+        given(<%= entityVarName %>Service.findAll(pageable)).willReturn(<%= entityVarName %>PagedResult);
 
         this.mockMvc
                 .perform(get("<%= basePath %>"))
@@ -77,7 +81,7 @@ class <%= entityName %>ControllerTest {
     void shouldFind<%= entityName %>ById() throws Exception {
         Long <%= entityVarName %>Id = 1L;
         <%= entityName %> <%= entityVarName %> = new <%= entityName %>(<%= entityVarName %>Id, "text 1");
-        given(<%= entityVarName %>Service.find<%= entityName %>ById(<%= entityVarName %>Id)).willReturn(Optional.of(<%= entityVarName %>));
+        given(<%= entityVarName %>Service.findById(<%= entityVarName %>Id)).willReturn(Optional.of(<%= entityVarName %>));
 
         this.mockMvc
                 .perform(get("<%= basePath %>/{id}", <%= entityVarName %>Id))
@@ -88,14 +92,14 @@ class <%= entityName %>ControllerTest {
     @Test
     void shouldReturn404WhenFetchingNonExisting<%= entityName %>() throws Exception {
         Long <%= entityVarName %>Id = 1L;
-        given(<%= entityVarName %>Service.find<%= entityName %>ById(<%= entityVarName %>Id)).willReturn(Optional.empty());
+        given(<%= entityVarName %>Service.findById(<%= entityVarName %>Id)).willReturn(Optional.empty());
 
         this.mockMvc.perform(get("<%= basePath %>/{id}", <%= entityVarName %>Id)).andExpect(status().isNotFound());
     }
 
     @Test
     void shouldCreateNew<%= entityName %>() throws Exception {
-        given(<%= entityVarName %>Service.save<%= entityName %>(any(<%= entityName %>.class)))
+        given(<%= entityVarName %>Service.save(any(<%= entityName %>.class)))
                 .willAnswer((invocation) -> invocation.getArgument(0));
 
         <%= entityName %> <%= entityVarName %> = new <%= entityName %>(1L, "some text");
@@ -135,8 +139,8 @@ class <%= entityName %>ControllerTest {
     void shouldUpdate<%= entityName %>() throws Exception {
         Long <%= entityVarName %>Id = 1L;
         <%= entityName %> <%= entityVarName %> = new <%= entityName %>(<%= entityVarName %>Id, "Updated text");
-        given(<%= entityVarName %>Service.find<%= entityName %>ById(<%= entityVarName %>Id)).willReturn(Optional.of(<%= entityVarName %>));
-        given(<%= entityVarName %>Service.save<%= entityName %>(any(<%= entityName %>.class)))
+        given(<%= entityVarName %>Service.findById(<%= entityVarName %>Id)).willReturn(Optional.of(<%= entityVarName %>));
+        given(<%= entityVarName %>Service.save(any(<%= entityName %>.class)))
                 .willAnswer((invocation) -> invocation.getArgument(0));
 
         this.mockMvc
@@ -151,7 +155,7 @@ class <%= entityName %>ControllerTest {
     @Test
     void shouldReturn404WhenUpdatingNonExisting<%= entityName %>() throws Exception {
         Long <%= entityVarName %>Id = 1L;
-        given(<%= entityVarName %>Service.find<%= entityName %>ById(<%= entityVarName %>Id)).willReturn(Optional.empty());
+        given(<%= entityVarName %>Service.findById(<%= entityVarName %>Id)).willReturn(Optional.empty());
         <%= entityName %> <%= entityVarName %> = new <%= entityName %>(<%= entityVarName %>Id, "Updated text");
 
         this.mockMvc
@@ -166,7 +170,7 @@ class <%= entityName %>ControllerTest {
     void shouldDelete<%= entityName %>() throws Exception {
         Long <%= entityVarName %>Id = 1L;
         <%= entityName %> <%= entityVarName %> = new <%= entityName %>(<%= entityVarName %>Id, "Some text");
-        given(<%= entityVarName %>Service.find<%= entityName %>ById(<%= entityVarName %>Id)).willReturn(Optional.of(<%= entityVarName %>));
+        given(<%= entityVarName %>Service.findById(<%= entityVarName %>Id)).willReturn(Optional.of(<%= entityVarName %>));
         doNothing().when(<%= entityVarName %>Service).delete<%= entityName %>ById(<%= entityVarName %>.getId());
 
         this.mockMvc
@@ -178,7 +182,7 @@ class <%= entityName %>ControllerTest {
     @Test
     void shouldReturn404WhenDeletingNonExisting<%= entityName %>() throws Exception {
         Long <%= entityVarName %>Id = 1L;
-        given(<%= entityVarName %>Service.find<%= entityName %>ById(<%= entityVarName %>Id)).willReturn(Optional.empty());
+        given(<%= entityVarName %>Service.findById(<%= entityVarName %>Id)).willReturn(Optional.empty());
 
         this.mockMvc
                 .perform(delete("<%= basePath %>/{id}", <%= entityVarName %>Id))

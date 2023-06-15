@@ -1,4 +1,3 @@
-package <%= packageName %>.services;
 package <%= packageName %>.domain.adapters.services;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -10,7 +9,7 @@ import static org.mockito.BDDMockito.willDoNothing;
 import <%= packageName %>.domain.<%= entityName %>;
 import <%= packageName %>.application.adapters.model.response.PagedResult;
 import <%= packageName %>.infrastructure.adapters.repositories.<%= entityName %>Repository;
-import <%= packageName %>.domain.adapters.service.<%= entityName %>ServiceImpl;
+import <%= packageName %>.domain.adapters.services.<%= entityName %>ServiceImpl;
 import java.util.List;
 import java.util.Optional;
 import org.junit.jupiter.api.Test;
@@ -22,10 +21,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 
 @ExtendWith(MockitoExtension.class)
 class <%= entityName %>ServiceTest {
@@ -39,15 +35,10 @@ class <%= entityName %>ServiceTest {
         // given
         Pageable pageable = PageRequest.of(0, 10, Sort.by(Sort.Direction.ASC, "id"));
         Page<<%= entityName %>> <%= entityVarName %>Page = new PageImpl<>(List.of(get<%= entityName %>()));
-        given(<%= entityVarName %>Repository.findAll(pageable)).willReturn(<%= entityVarName %>Page);
 
-        Sort sort =
-            "asc".equalsIgnoreCase(Sort.Direction.ASC.name())
-                ? Sort.by("id").ascending()
-                : Sort.by("id").descending();
-
-        // create Pageable instance
-        Pageable pageable = PageRequest.of(0, 10, sort);
+        PagedResult<<%= entityName %>> <%= entityVarName %>PagedResult = new PagedResult<>(<%= entityVarName %>Page);
+        given(<%= entityVarName %>Repository.findAll(pageable)).willReturn(<%= entityVarName %>PagedResult);
+        
 
         // when
         PagedResult<<%= entityName %>> pagedResult = <%= entityVarName %>Service.findAll(pageable);

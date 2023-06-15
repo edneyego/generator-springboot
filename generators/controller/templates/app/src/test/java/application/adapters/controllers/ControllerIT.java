@@ -13,7 +13,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import <%= packageName %>.common.AbstractIntegrationTest;
 import <%= packageName %>.domain.<%= entityName %>;
-import <%= packageName %>.repositories.<%= entityName %>Repository;
+import <%= packageName %>.infrastructure.adapters.repositories.<%= entityName %>Repository;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
@@ -29,13 +29,13 @@ class <%= entityName %>ControllerIT extends AbstractIntegrationTest {
 
     @BeforeEach
     void setUp() {
-        <%= entityVarName %>Repository.deleteAll();
+        //<%= entityVarName %>Repository.deleteAll();
 
         <%= entityVarName %>List = new ArrayList<>();
         <%= entityVarName %>List.add(new <%= entityName %>(null, "First <%= entityName %>"));
         <%= entityVarName %>List.add(new <%= entityName %>(null, "Second <%= entityName %>"));
         <%= entityVarName %>List.add(new <%= entityName %>(null, "Third <%= entityName %>"));
-        <%= entityVarName %>List = <%= entityVarName %>Repository.saveAll(<%= entityVarName %>List);
+        //<%= entityVarName %>List = <%= entityVarName %>Repository.saveAll(<%= entityVarName %>List);
     }
 
     @Test

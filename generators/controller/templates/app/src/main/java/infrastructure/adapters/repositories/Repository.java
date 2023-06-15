@@ -11,13 +11,14 @@ import <%= packageName %>.infrastructure.adapters.entities.<%= entityName %>Enti
 import <%= packageName %>.infrastructure.adapters.mappers.<%= entityName %>Mapper;
 import <%= packageName %>.application.adapters.model.response.PagedResult;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Page;
 
 @AllArgsConstructor
 @Component
 @Repository
 public class <%= entityName %>Repository implements <%= entityName %>RepositoryPort {
   
-    private final Spring<%= entityName %>Repository springRepository;
+    private Spring<%= entityName %>Repository springRepository;
     private <%= entityName %>Mapper <%= entityVarName %>Mapper;
 
 

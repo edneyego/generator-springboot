@@ -9,6 +9,7 @@ import org.mapstruct.Named;
 import org.mapstruct.ReportingPolicy;
 import <%= packageName %>.domain.<%= entityName %>;
 import <%= packageName %>.infrastructure.adapters.entities.<%= entityName %>Entity;
+import org.springframework.data.domain.Page;
 
 @Mapper(
         componentModel = MappingConstants.ComponentModel.SPRING,
