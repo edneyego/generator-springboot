@@ -79,18 +79,20 @@ module.exports = class extends BaseGenerator {
             {src: 'application/adapters/controllers/Controller.java', dest: 'application/adapters/controllers/'+configOptions.entityName+'Controller.java'},
             {src: 'domain/ports/repositories/RepositoryPort.java', dest: 'domain/ports/repositories/'+configOptions.entityName+'RepositoryPort.java'},
             {src: 'domain/adapters/services/ServiceImpl.java', dest: 'domain/adapters/services/'+configOptions.entityName+'ServiceImpl.java'},
-            {src: 'domain/entities/Entity.java', dest: 'domain/entities/'+configOptions.entityName+'Entity.java'},
+            {src: 'domain/DomainModel.java', dest: 'domain/'+configOptions.entityName+'.java'},
             {src: 'domain/ports/interfaces/ServicePort.java', dest: 'domain/ports/interfaces/'+configOptions.entityName+'ServicePort.java'},
             {src: 'domain/ports/repositories/RepositoryPort.java', dest: 'domain/ports/repositories/'+configOptions.entityName+'RepositoryPort.java'},
             {src: 'infrastructure/adapters/entities/Entity.java', dest: 'infrastructure/adapters/entities/'+configOptions.entityName+'Entity.java'},
             {src: 'infrastructure/adapters/repositories/Repository.java', dest: 'infrastructure/adapters/repositories/'+configOptions.entityName+'Repository.java'},
+            {src: 'infrastructure/adapters/repositories/SpringRepository.java', dest: 'infrastructure/adapters/repositories/Spring'+configOptions.entityName+'Repository.java'},
+            {src: 'infrastructure/adapters/mappers/Mapper.java', dest: 'infrastructure/adapters/mappers/'+configOptions.entityName+'Mapper.java'},
         ];
         this.generateMainJavaCode(configOptions, mainJavaTemplates);
 
         const testJavaTemplates = [
             {src: 'application/adapters/controllers/ControllerTest.java', dest: 'application/adapters/controllers/'+configOptions.entityName+'ControllerTest.java'},
             {src: 'application/adapters/controllers/ControllerIT.java', dest: 'application/adapters/controllers/'+configOptions.entityName+'ControllerIT.java'},
-            {src: 'services/ServiceTest.java', dest: 'services/'+configOptions.entityName+'ServiceTest.java'},
+            {src: 'domain/adapters/services/ServiceTest.java', dest: 'domain/adapters/services/'+configOptions.entityName+'ServiceTest.java'},
         ];
         this.generateTestJavaCode(configOptions, testJavaTemplates);
     }

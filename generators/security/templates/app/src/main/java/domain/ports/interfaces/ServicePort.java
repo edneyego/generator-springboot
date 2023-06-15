@@ -1,10 +1,10 @@
 package <%= packageName %>.domain.ports.interfaces;
 
-import <%= packageName %>.domain.dtos.<%= entityName %>DTO;
+import <%= packageName %>.domain.<%= entityName %>;
 import java.util.Optional;
 
 public interface <%= entityName %>ServicePort {
 
-    public <%= entityName %>DTO registerUser(<%= entityName %>DTO <%= entityName %>);
+    public <%= entityName %> registerUser(<%= entityName %> <%= entityName %>);
 
 }

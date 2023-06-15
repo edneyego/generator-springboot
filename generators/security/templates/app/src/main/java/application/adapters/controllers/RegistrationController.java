@@ -10,8 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import <%= packageName %>.domain.dtos.<%= entityName %>DTO;
+import <%= packageName %>.domain.<%=entityName%>;
 import <%= packageName %>.domain.ports.interfaces.<%= entityName %>ServicePort;
 
 
@@ -29,7 +28,7 @@ public class RegistrationController {
     private ApplicationEventPublisher publisher;
 
     @PostMapping("/register")
-    public ResponseEntity<String> registerUser(@RequestBody <%= entityName %>DTO userModel, final HttpServletRequest request) {
+    public ResponseEntity<String> registerUser(@RequestBody <%= entityName %> userModel, final HttpServletRequest request) {
         servicePort.registerUser(userModel);
        
         return ResponseEntity.ok().body("Success");

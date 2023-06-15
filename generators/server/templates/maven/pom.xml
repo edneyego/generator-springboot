@@ -375,7 +375,6 @@
                         <exclude>**/*Application.*</exclude>
                         <exclude>**/config/**</exclude>
                         <exclude>**/models/*</exclude>
-                        <exclude>**/dtos/*</exclude>
                         <exclude>**/exceptions/*</exclude>
                         <exclude>**/*Constants*</exclude>
                     </excludes>

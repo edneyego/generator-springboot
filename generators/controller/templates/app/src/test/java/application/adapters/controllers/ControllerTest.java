@@ -16,7 +16,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import <%= packageName %>.domain.entities.<%= entityName %>;
+import <%= packageName %>.domain.<%= entityName %>;
 import <%= packageName %>.application.adapters.model.response.PagedResult;
 import <%= packageName %>.services.<%= entityName %>Service;
 import java.util.ArrayList;

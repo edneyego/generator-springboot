@@ -1,9 +1,10 @@
 package <%= packageName %>.application.adapters.controllers;
 
-import <%= packageName %>.domain.entities.<%= entityName %>;
+import <%= packageName %>.domain.<%= entityName %>;
 import <%= packageName %>.application.adapters.model.response.PagedResult;
 import <%= packageName %>.domain.ports.interfaces.<%= entityName %>ServicePort;
-import <%= packageName %>.utils.AppConstants;
+
+import <%= packageName %>.infrastructure.config.utils.AppConstants;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.PageRequest;
 <% if (hasSecurity) { %>
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 <% } %>
@@ -32,14 +37,10 @@ import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 <% if (hasSecurity) { %>
 @SecurityRequirement(name = "javainuseapi")
 <% } %>
+@AllArgsConstructor
 public class <%= entityName %>Controller {
 
     private final <%= entityName %>ServicePort <%= entityVarName %>Service;
-
-    @Autowired
-    public <%= entityName %>Controller(<%= entityName %>Service <%= entityVarName %>Service) {
-        this.<%= entityVarName %>Service = <%= entityVarName %>Service;
-    }
 
     @GetMapping
     public PagedResult<<%= entityName %>> getAll<%= entityName %>s(
@@ -64,13 +65,22 @@ public class <%= entityName %>Controller {
                         required = false)
                 String sortDir
                 ) {
-        return <%= entityVarName %>Service.findAll<%= entityName %>s(pageNo, pageSize, sortBy, sortDir);
+
+        Sort sort =
+            sortDir.equalsIgnoreCase(Sort.Direction.ASC.name())
+                ? Sort.by(sortBy).ascending()
+                : Sort.by(sortBy).descending();
+
+        // create Pageable instance
+        Pageable pageable = PageRequest.of(pageNo, pageSize, sort);
+
+        return <%= entityVarName %>Service.findAll(pageable);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<<%= entityName %>> get<%= entityName %>ById(@PathVariable Long id) {
         return <%= entityVarName %>Service
-                .find<%= entityName %>ById(id)
+                .findById(id)
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
@@ -78,18 +88,18 @@ public class <%= entityName %>Controller {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public <%= entityName %> create<%= entityName %>(@RequestBody @Validated <%= entityName %> <%= entityVarName %>) {
-        return <%= entityVarName %>Service.save<%= entityName %>(<%= entityVarName %>);
+        return <%= entityVarName %>Service.save(<%= entityVarName %>);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<<%= entityName %>> update<%= entityName %>(
             @PathVariable Long id, @RequestBody <%= entityName %> <%= entityVarName %>) {
         return <%= entityVarName %>Service
-                .find<%= entityName %>ById(id)
+                .findById(id)
                 .map(
                         <%= entityVarName %>Obj -> {
                             <%= entityVarName %>.setId(id);
-                            return ResponseEntity.ok(<%= entityVarName %>Service.save<%= entityName %>(<%= entityVarName %>));
+                            return ResponseEntity.ok(<%= entityVarName %>Service.save(<%= entityVarName %>));
                         })
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
@@ -97,10 +107,10 @@ public class <%= entityName %>Controller {
     @DeleteMapping("/{id}")
     public ResponseEntity<<%= entityName %>> delete<%= entityName %>(@PathVariable Long id) {
         return <%= entityVarName %>Service
-                .find<%= entityName %>ById(id)
+                .findById(id)
                 .map(
                         <%= entityVarName %> -> {
-                            <%= entityVarName %>Service.delete<%= entityName %>ById(id);
+                            <%= entityVarName %>Service.deleteById(id);
                             return ResponseEntity.ok(<%= entityVarName %>);
                         })
                 .orElseGet(() -> ResponseEntity.notFound().build());

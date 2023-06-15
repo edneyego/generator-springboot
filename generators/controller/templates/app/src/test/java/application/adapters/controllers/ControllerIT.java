@@ -12,7 +12,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import <%= packageName %>.common.AbstractIntegrationTest;
-import <%= packageName %>.domain.entities.<%= entityName %>;
+import <%= packageName %>.domain.<%= entityName %>;
 import <%= packageName %>.repositories.<%= entityName %>Repository;
 import java.util.ArrayList;
 import java.util.List;

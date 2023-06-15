@@ -39,7 +39,7 @@ public class <%= entityName %>Entity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        <%= entityName %> <%= entityVarName %> = (<%= entityName %>) o;
+        <%= entityName %>Entity <%= entityVarName %> = (<%= entityName %>Entity) o;
         return id != null && Objects.equals(id, <%= entityVarName %>.id);
     }
 
