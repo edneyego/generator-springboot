@@ -8,8 +8,4 @@ import org.springframework.stereotype.Repository;
 import <%= packageName %>.infrastructure.adapters.entities.<%= entityName %>Entity;
 
 @Repository
-public interface Spring<%= entityName %>Repository extends JpaRepository<<%= entityName %>Entity, Long> {
-  
-  Optional<<%= entityName %>Entity> findByUsername(String username);
-
-}
+public interface Spring<%= entityName %>Repository extends JpaRepository<<%= entityName %>Entity, Long> {}

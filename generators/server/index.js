@@ -210,7 +210,7 @@ module.exports = class extends BaseGenerator {
     _generateAppCode(configOptions) {
 
         const mainJavaTemplates = [
-            'infrastructure/Application.java',
+            'Application.java',
             'infrastructure/config/WebMvcConfig.java',
             'infrastructure/config/SwaggerConfig.java',
             'infrastructure/config/ApplicationProperties.java',

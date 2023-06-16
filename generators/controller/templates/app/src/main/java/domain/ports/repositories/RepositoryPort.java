@@ -8,8 +8,6 @@ import <%= packageName %>.application.adapters.model.response.PagedResult;
 
 public interface <%= entityName %>RepositoryPort{
 
-    Optional<<%= entityName %>> findByUsername(String username);
-
     PagedResult<<%= entityName %>> findAll(Pageable pageable);
 
     Optional<<%= entityName %>> findById(Long id);

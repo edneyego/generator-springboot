@@ -23,11 +23,6 @@ public class <%= entityName %>Repository implements <%= entityName %>RepositoryP
 
 
     @Override
-    public Optional<<%= entityName %>> findByUsername(String username){
-        return Optional.ofNullable(<%= entityVarName %>Mapper.from(springRepository.findByUsername(username).get()));
-    }
-
-    @Override
     public <%= entityName %> save(<%= entityName %> <%= entityVarName %>) {
         <%= entityName %>Entity entity=  <%= entityVarName %>Mapper.to(<%= entityVarName %>);
         return <%= entityVarName %>Mapper.from(springRepository.save(entity));
