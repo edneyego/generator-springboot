@@ -12,19 +12,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import <%= packageName %>.domain.<%=entityName%>;
 import <%= packageName %>.domain.ports.interfaces.<%= entityName %>ServicePort;
-
+import lombok.AllArgsConstructor;
 
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @Slf4j
+@AllArgsConstructor
 @RequestMapping("/registration")
 public class RegistrationController {
-
-    @Autowired
+    
     private <%= entityName %>ServicePort servicePort;
 
-    @Autowired
     private ApplicationEventPublisher publisher;
 
     @PostMapping("/register")

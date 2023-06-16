@@ -2,7 +2,7 @@ package <%= packageName %>.application.adapters.controllers;
 
 import java.util.Objects;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -24,14 +24,14 @@ import java.util.Objects;
 
 @RestController
 @CrossOrigin
+@AllArgsConstructor
 @RequestMapping("/api")
 public class JwtAuthenticationController {
 
-    @Autowired private AuthenticationManager authenticationManager;
+    private AuthenticationManager authenticationManager;
 
-    @Autowired private JwtUtils jwtTokenUtil;
+    private JwtUtils jwtTokenUtil;
 
-    @Autowired
     private UserDetailsServiceImpl userDetailsService;
 
     @RequestMapping(value = "/auth", method = RequestMethod.POST)

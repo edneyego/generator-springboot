@@ -17,14 +17,16 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import <%= packageName %>.infrastructure.adapters.filter.AuthEntryPointJwt;
 import <%= packageName %>.infrastructure.adapters.filter.AuthTokenFilter;
 import <%= packageName %>.domain.adapters.services.UserDetailsServiceImpl;
+import lombok.AllArgsConstructor;
 
 @Configuration
 @EnableWebSecurity
+@AllArgsConstructor
 public class WebSecurityConfig {
   
-  @Autowired UserDetailsServiceImpl userDetailsService;
+  private UserDetailsServiceImpl userDetailsService;
 
-  @Autowired private AuthEntryPointJwt unauthorizedHandler;
+  private AuthEntryPointJwt unauthorizedHandler;
 
   @Bean
   public AuthenticationManager authenticationManager(AuthenticationConfiguration authConfig)
