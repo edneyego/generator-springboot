@@ -13,7 +13,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-
+import <%= packageName %>.infrastructure.adapters.repositories.AuthRepository;
 import <%= packageName %>.infrastructure.adapters.filter.AuthEntryPointJwt;
 import <%= packageName %>.infrastructure.adapters.filter.AuthTokenFilter;
 import <%= packageName %>.domain.adapters.services.UserDetailsServiceImpl;
@@ -24,9 +24,14 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class WebSecurityConfig {
   
-  private UserDetailsServiceImpl userDetailsService;
-
   private AuthEntryPointJwt unauthorizedHandler;
+
+  private AuthRepository authRepository;
+
+  @Bean
+  public UserDetailsServiceImpl userDetailsService() {
+      return new UserDetailsServiceImpl(authRepository);
+  }
 
   @Bean
   public AuthenticationManager authenticationManager(AuthenticationConfiguration authConfig)
@@ -42,7 +47,7 @@ public class WebSecurityConfig {
   public DaoAuthenticationProvider authenticationProvider() {
       DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
 
-      authProvider.setUserDetailsService(userDetailsService);
+      authProvider.setUserDetailsService(userDetailsService());
       authProvider.setPasswordEncoder(passwordEncoder());
 
       return authProvider;

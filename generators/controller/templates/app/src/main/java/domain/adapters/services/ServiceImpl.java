@@ -26,7 +26,7 @@ public class <%= entityName %>ServiceImpl implements <%= entityName %>ServicePor
 
     @Override
     public PagedResult<<%= entityName %>> findAll(Pageable pageable) {
-        return customerRepository.findAll(pageable);
+        return <%= entityVarName %>Repository.findAll(pageable);
     }
 
     @Override

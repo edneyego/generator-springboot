@@ -1,5 +1,4 @@
 package <%= packageName %>.application.adapters.controllers.request;
-
 import java.io.Serializable;
 import lombok.Builder;
 import lombok.Getter;
