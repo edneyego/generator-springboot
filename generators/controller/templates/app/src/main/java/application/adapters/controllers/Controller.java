@@ -98,8 +98,7 @@ public class <%= entityName %>Controller {
                 .findById(id)
                 .map(
                         <%= entityVarName %>Obj -> {
-                            <%= entityVarName %>.setId(id);
-                            return ResponseEntity.ok(<%= entityVarName %>Service.save(<%= entityVarName %>));
+                            return ResponseEntity.ok(<%= entityVarName %>Service.save(<%= entityVarName %>.updateId(id)));
                         })
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }

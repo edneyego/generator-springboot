@@ -44,6 +44,10 @@ function prompting() {
                 {
                     value: 'mariadb',
                     name: 'MariaDB'
+                },
+                {
+                    value: 'none',
+                    name: 'None'
                 }
             ],
             default: 'postgresql'
